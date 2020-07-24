@@ -15,25 +15,28 @@ function App() {
 
   return (
     <div className="App">
-    <h1>Pomodoro</h1>
+    <h1 className="title">Pomodoro</h1>
+    <div className="pomodoro-box">
+    <h3 className="session-title">Current Session</h3>
+        <Timer  time={timeLeft} mode={mode}/>
+        <div className="button-box">
+          <button id="start_stop" onClick={toggleIsActive}>{isActive ? 'Pause' : 'Start'}</button>
+          <button id="reset" onClick={reset}>Reset</button>
 
-    <h3>Current Session</h3>
-    <Timer  time={timeLeft} mode={mode}/>
-    <div className="button-box">
-      <button id="start_stop" onClick={toggleIsActive}>{isActive ? 'Pause' : 'Start'}</button>
-      <button id="reset" onClick={reset}>Reset</button>
+        </div>
+        <Break 
+          length={breakLength}
+          decrement={decrementBreakLength}
+          increment={incrementBreakLength}
+        />
+        <Session
+          length={sessionLength}
+          decrement={decrementSessionLength}
+          increment={incrementSessionLength}
+        /> 
 
     </div>
-    <Break 
-      length={breakLength}
-      decrement={decrementBreakLength}
-      increment={incrementBreakLength}
-    />
-    <Session
-      length={sessionLength}
-      decrement={decrementSessionLength}
-      increment={incrementSessionLength}
-     /> 
+    
     </div>
   );
 }

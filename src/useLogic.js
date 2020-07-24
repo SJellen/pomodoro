@@ -5,7 +5,7 @@ function useLogic() {
 
   const [breakLength, setBreakLength] = useState(5 * 60)
   const [sessionLength, setSessionLength] = useState(25 * 60)
-  const [mode, setMode] = useState("session")
+  const [mode, setMode] = useState("Session")
   const [timeLeft, setTimeLeft] = useState()
   const [isActive, setIsActive] = useState(false)
   const [timeSpent, setTimeSpent] = useState(0)
@@ -13,7 +13,7 @@ function useLogic() {
   const [beepPlaying, setBeepPlaying] = useState(false)
 
   useEffect(() => {
-    setTimeLeft(mode === 'session' ? sessionLength * 1000 : breakLength * 1000)
+    setTimeLeft(mode === 'Session' ? sessionLength * 1000 : breakLength * 1000)
   }, [sessionLength, breakLength, mode])
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function useLogic() {
 
     if (isActive && timeLeft > 1) {
       setTimeLeft(
-        mode === 'session'
+        mode === 'Session'
         ? sessionLength * 1000 - timeSpent
         : breakLength * 1000 - timeSpent
       )
@@ -37,9 +37,9 @@ function useLogic() {
       beep.play()
       setBeepPlaying(true)
       setTimeSpent(0)
-      setMode((mode) => (mode === 'session' ? 'break' : 'session'))
+      setMode((mode) => (mode === 'Session' ? 'Break' : 'Session'))
       setTimeLeft(
-        mode === 'session' ? sessionLength * 1000 : breakLength * 1000
+        mode === 'Session' ? sessionLength * 1000 : breakLength * 1000
       )
     }
     return () => clearInterval(interval)
@@ -77,7 +77,7 @@ function useLogic() {
   function reset() {
     setBreakLength(5 * 60)
     setSessionLength(25 * 60)
-    setTimeLeft(mode === 'session' ? sessionLength * 1000 : breakLength * 1000)
+    setTimeLeft(mode === 'Session' ? sessionLength * 1000 : breakLength * 1000)
 
     if (isActive) {
       setIsActive(false)
