@@ -17,7 +17,6 @@ function App() {
     <div className="App">
     <h1 className="title">Pomodoro</h1>
     <div className="pomodoro-box">
-    <h3 className="session-title">Current Session</h3>
         <Timer  time={timeLeft} mode={mode}/>
         <div className="button-box">
           <button id="start_stop" onClick={toggleIsActive}>{isActive ? 'Pause' : 'Start'}</button>
