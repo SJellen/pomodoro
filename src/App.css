@@ -21,7 +21,7 @@ body {
   width: 350px;
   height: 600px;
   background-color: rgba(4, 4, 4, .75);
-  margin: 0 auto;
+  margin: 10rem auto;
   border-radius: 25px;
   color: white;
   display: flex;
@@ -141,4 +141,26 @@ body {
   transition: linear .5s;
 }
 
+
+@media only screen and (max-width: 500px) {
+  body {
+    height: auto;
+    padding-bottom: 5rem;
+  }
+  .pomodoro-box {
+    margin: 4rem auto;
+  }
+
+}
+
+
+@media only screen and (max-width: 370px) {
+  .pomodoro-box {
+    transform: scale(.8);
+    margin: 0 auto;
+  }
+  body {
+    padding-bottom: 3rem;
+  }
+}
 
